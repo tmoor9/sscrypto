@@ -1,0 +1,26 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+solc_version = '0.8.29'
+
+show_progress = true
+
+no-match-test = "testGas"
+
+fs_permissions = [{ access = "read-write", path = "./"}]
+
+optimizer = true
+optimizer_runs = 200
+
+[rpc_endpoints]
+goerli = "${GOERLI_RPC_URL}"
+optimism = "${OPTIMISM_RPC_URL}"
+
+[etherscan]
+goerli = { key = "${GOERLI_SCAN_API_KEY}", url = "${GOERLI_ETHERSCAN_VERIFIER_URL}" }
+optimism = { key = "${OPTIMISM_SCAN_API_KEY}", url = "${OPTIMISM_ETHERSCAN_VERIFIER_URL}" }
+
+[invariant]
+runs = 500
+depth = 20
+fail_on_revert = false
